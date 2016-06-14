@@ -1,0 +1,10 @@
+{
+  "name": "lp-streamer",
+  "version": "0.0.0",
+  "dependencies": {
+    "interface-for-ip": "^0.1.0",
+    "line-in": "^0.1.2",
+    "nicercast": "LinusU/nicercast#v0.2.0",
+    "sonos": "^0.12.0"
+  }
+}
