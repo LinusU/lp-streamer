@@ -11,7 +11,7 @@ module.exports = function streamToSonos (stream) {
   var server = new Nicercast(stream, { metadata: 'LP Streamer' })
 
   server.listen(0, function () {
-    var port = server.address().port
+    var localPort = server.address().port
 
     sonos.search(function (client, type) {
       if (type === 'BR100') return
