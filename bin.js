@@ -1,8 +1,15 @@
 #!/usr/bin/env node
 
-'use strict'
+const os = require('os')
+const { spawn } = require('child_process')
+const Nicercast = require('nicercast')
 
-var LineIn = require('line-in')
-var sonos = require('./sink/sonos')
+const input = spawn('parec').stdout
+const server = new Nicercast(input, { metadata: 'LP Streamer' })
 
-sonos(new LineIn())
+// Switch stream to flowing mode, as to not buffer audio data until the first client connects
+input.resume()
+
+server.listen(80, () => {
+  console.log(`http://${os.hostname()}/listen.m3u`)
+})

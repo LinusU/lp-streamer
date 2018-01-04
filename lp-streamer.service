@@ -1,0 +1,9 @@
+[Unit]
+Description=LP Streamer
+
+[Service]
+User=pi
+ExecStart=/usr/bin/node /home/pi/lp-streamer/bin.js
+
+[Install]
+WantedBy=multi-user.target
