@@ -67,12 +67,13 @@ sudo ln -s /home/pi/lp-streamer/lp-streamer.service /etc/systemd/system/lp-strea
 
 ### Start the service
 
-The service should now start automaticallt whenever the pi is rebooted. Start it now with this command:
-
 ```sh
 sudo systemctl daemon-reload
+sudo systemctl enable lp-streamer
 sudo systemctl start lp-streamer
 ```
+
+The service should now start automaticallt whenever the pi is rebooted.
 
 ### Start listening 🚀
 
