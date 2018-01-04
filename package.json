@@ -1,6 +1,6 @@
 {
   "name": "lp-streamer",
-  "version": "0.2.1",
+  "version": "0.3.0",
   "bin": "bin.js",
   "license": "MIT",
   "repository": "LinusU/lp-streamer",
