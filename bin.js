@@ -9,13 +9,13 @@ const express = require('express')
 const platform = require('./platform/linux-alsa')
 
 const settings = {
-  mode: 'passthrough'
-  // mode: 'source'
+  passThrough: true,
+  source: true
 }
 
 const app = express()
 
-if (settings.mode === 'passthrough') {
+if (settings.passThrough) {
   platform.startPassThrough()
 
   audioHidEvents.on('volume-up', () => {
@@ -34,7 +34,7 @@ if (settings.mode === 'passthrough') {
   })
 }
 
-if (settings.mode === 'source') {
+if (settings.source) {
   app.get('/listen.m3u', (req, res) => {
     const urlProps = { protocol: 'http', pathname: '/listen' }
 
@@ -61,7 +61,7 @@ if (settings.mode === 'source') {
   })
 }
 
-app.get('/', (req, res) => res.send(`<h1>LP Streamer</h1><p>Current mode: ${settings.mode}</p>`))
+app.get('/', (req, res) => res.send(`<h1>LP Streamer</h1><p>Pass through: ${settings.passThrough ? 'on' : 'off'}</p><p>Source: ${settings.source ? 'on' : 'off'}</p>`))
 
 app.listen(80, () => {
   console.log(`http://${os.hostname()}.local/listen.m3u`)
