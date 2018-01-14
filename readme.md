@@ -32,7 +32,7 @@ network={
 ### Install prerequisites
 
 ```sh
-sudo apt-get install git pulseaudio
+sudo apt-get install git libusb-1.0-0-dev lame
 ```
 
 ### Install Node.js
@@ -45,6 +45,12 @@ curl -L https://nodejs.org/dist/v8.9.4/node-v8.9.4-linux-armv6l.tar.gz | sudo ta
 
 ```sh
 sudo setcap CAP_NET_BIND_SERVICE=+eip /usr/bin/node
+```
+
+### Let `pi` user read audio USB HID signals
+
+```sh
+sudo adduser pi root
 ```
 
 ### Install LP Streamer
