@@ -1,0 +1,13 @@
+[package]
+name = "lp-streamer"
+version = "0.0.0"
+authors = ["Linus Unnebäck <linus@folkdatorn.se>"]
+edition = "2018"
+
+[dependencies]
+mdns = "^0.3.1"
+rocket = { version = "^0.4.1", default-features = false }
+rocket_contrib = { version = "^0.4.1", default-features = false, features = ["json", "serve"] }
+serde = "^1.0.0"
+serde_json = "^1.0.0"
+serde_derive = "^1.0.0"
